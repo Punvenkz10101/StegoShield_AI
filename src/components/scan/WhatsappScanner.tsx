@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Whatsapp, Loader2, Check, AlertTriangle, AlertCircle } from "lucide-react";
+import { MessageSquare, Loader2, Check, AlertTriangle, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface WhatsappMedia {
@@ -157,7 +157,7 @@ export default function WhatsappScanner({ className }: WhatsappScannerProps) {
               </>
             ) : (
               <>
-                <Whatsapp className="mr-2 h-4 w-4" />
+                <MessageSquare className="mr-2 h-4 w-4" />
                 Connect WhatsApp
               </>
             )}
@@ -238,7 +238,7 @@ export default function WhatsappScanner({ className }: WhatsappScannerProps) {
         </div>
       ) : isConnected ? (
         <div className="flex flex-col items-center justify-center py-12 text-center">
-          <Whatsapp className="h-12 w-12 text-stegoshield-accent/60 mb-4" />
+          <MessageSquare className="h-12 w-12 text-stegoshield-accent/60 mb-4" />
           <h3 className="text-lg font-medium text-stegoshield-light mb-1">No Media Files Found</h3>
           <p className="text-sm text-stegoshield-light/70 max-w-md">
             Connect to WhatsApp and make sure you have permission to access media files
@@ -246,7 +246,7 @@ export default function WhatsappScanner({ className }: WhatsappScannerProps) {
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center py-12 text-center">
-          <Whatsapp className="h-12 w-12 text-stegoshield-accent/60 mb-4" />
+          <MessageSquare className="h-12 w-12 text-stegoshield-accent/60 mb-4" />
           <h3 className="text-lg font-medium text-stegoshield-light mb-1">Connect to WhatsApp</h3>
           <p className="text-sm text-stegoshield-light/70 max-w-md">
             Click the connect button above to link your WhatsApp account and scan media files

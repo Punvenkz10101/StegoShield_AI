@@ -12,7 +12,7 @@ export const recentActivities = [
     filename: "quarterly_report.pdf",
     type: "document",
     source: "Email",
-    status: "clean",
+    status: "clean" as "clean" | "malware" | "stego",
     timestamp: "2 minutes ago"
   },
   {
@@ -20,7 +20,7 @@ export const recentActivities = [
     filename: "product_demo.mp4",
     type: "video",
     source: "WhatsApp",
-    status: "stego",
+    status: "stego" as "clean" | "malware" | "stego",
     timestamp: "15 minutes ago"
   },
   {
@@ -28,7 +28,7 @@ export const recentActivities = [
     filename: "invoice_details.jpg",
     type: "image",
     source: "Manual",
-    status: "malware",
+    status: "malware" as "clean" | "malware" | "stego",
     timestamp: "45 minutes ago"
   },
   {
@@ -36,7 +36,7 @@ export const recentActivities = [
     filename: "meeting_notes.docx",
     type: "document",
     source: "Email",
-    status: "clean",
+    status: "clean" as "clean" | "malware" | "stego",
     timestamp: "2 hours ago"
   },
   {
@@ -44,7 +44,7 @@ export const recentActivities = [
     filename: "presentation.pptx",
     type: "document",
     source: "Manual",
-    status: "clean",
+    status: "clean" as "clean" | "malware" | "stego",
     timestamp: "5 hours ago"
   }
 ];

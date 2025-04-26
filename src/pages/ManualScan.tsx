@@ -24,9 +24,10 @@ export default function ManualScan() {
     // Simulate AI analysis
     setTimeout(() => {
       // Generate random scan result for demo
+      const statusOptions: ("clean" | "malware" | "stego")[] = ["clean", "malware", "stego"];
       const status = Math.random() > 0.7 
         ? (Math.random() > 0.5 ? "malware" : "stego") 
-        : "clean";
+        : "clean" as "clean" | "malware" | "stego";
       
       const confidence = Math.floor(Math.random() * 20) + 80; // 80-99%
       

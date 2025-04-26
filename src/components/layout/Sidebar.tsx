@@ -7,7 +7,7 @@ import {
   LayoutDashboard, 
   Scan, 
   Mail, 
-  Whatsapp, 
+  MessageSquare, 
   Database, 
   Download, 
   Menu,
@@ -54,7 +54,7 @@ export default function Sidebar() {
     { path: "/dashboard", icon: LayoutDashboard, title: "Dashboard" },
     { path: "/manual-scan", icon: Scan, title: "Manual Scan" },
     { path: "/gmail-scan", icon: Mail, title: "Gmail Attachments" },
-    { path: "/whatsapp-scan", icon: Whatsapp, title: "WhatsApp Media" },
+    { path: "/whatsapp-scan", icon: MessageSquare, title: "WhatsApp Media" },
     { path: "/blockchain-logs", icon: Database, title: "Blockchain Logs" },
     { path: "/reports", icon: Download, title: "Download Reports" },
   ];
