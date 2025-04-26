@@ -126,9 +126,20 @@ export default function AuthForm() {
   return (
     <div className="w-full max-w-md">
       <Tabs defaultValue="signin" className="w-full">
-        <TabsList className="grid grid-cols-2 mb-8">
-          <TabsTrigger id="signin-tab" value="signin">Sign In</TabsTrigger>
-          <TabsTrigger value="signup">Sign Up</TabsTrigger>
+        <TabsList className="grid grid-cols-2 mb-8 bg-stegoshield-light/5">
+          <TabsTrigger 
+            id="signin-tab" 
+            value="signin" 
+            className="data-[state=active]:bg-stegoshield-accent data-[state=active]:text-stegoshield-dark"
+          >
+            Sign In
+          </TabsTrigger>
+          <TabsTrigger 
+            value="signup"
+            className="data-[state=active]:bg-stegoshield-accent data-[state=active]:text-stegoshield-dark"
+          >
+            Sign Up
+          </TabsTrigger>
         </TabsList>
         
         <TabsContent value="signin">

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import Header from "@/components/layout/Header";
 import Sidebar from "@/components/layout/Sidebar";
@@ -50,25 +49,23 @@ export default function ManualScan() {
 
   return (
     <div className="flex h-screen bg-stegoshield-dark overflow-hidden">
-      {/* Sidebar */}
       <Sidebar />
       
-      {/* Main content */}
       <div className="flex-1 flex flex-col overflow-hidden">
         <Header />
         
         <main className="flex-1 overflow-y-auto p-4 md:p-6">
-          <div className="max-w-7xl mx-auto space-y-6">
+          <div className="max-w-7xl mx-auto">
             <h1 className="text-2xl font-bold text-stegoshield-light mb-6">Manual File Scanner</h1>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-[calc(100vh-12rem)]">
               <FileUpload onFileSelect={handleFileSelect} />
               
               {isScanning ? (
-                <div className="glass-card rounded-xl p-6 flex flex-col items-center justify-center h-full">
+                <div className="glass-card rounded-xl p-6 flex flex-col items-center justify-center">
                   <div className="w-16 h-16 border-4 border-stegoshield-accent/30 border-t-stegoshield-accent rounded-full animate-spin mb-4"></div>
                   <h2 className="text-lg font-semibold text-stegoshield-light mb-2">Scanning File</h2>
-                  <p className="text-sm text-stegoshield-light/70 text-center max-w-xs">
+                  <p className="text-sm text-stegoshield-light/80 text-center max-w-xs">
                     Our AI is analyzing the file for hidden malware and steganography
                   </p>
                 </div>

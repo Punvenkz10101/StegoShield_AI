@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import {
   Table,
@@ -28,7 +27,7 @@ interface BlockchainLogsProps {
 }
 
 export default function BlockchainLogs({ className }: BlockchainLogsProps) {
-  const [entries, setEntries] = useState<BlockchainEntry[]>([
+  const [entries] = useState<BlockchainEntry[]>([
     {
       id: "1",
       fileHash: "a1b2c3d4e5f6...",
@@ -125,7 +124,6 @@ export default function BlockchainLogs({ className }: BlockchainLogsProps) {
             <TableRow className="border-stegoshield-light/10">
               <TableHead className="text-stegoshield-light/70">File Hash</TableHead>
               <TableHead className="text-stegoshield-light/70">Scan Result</TableHead>
-              <TableHead className="text-stegoshield-light/70">Threat Level</TableHead>
               <TableHead className="text-stegoshield-light/70">Timestamp</TableHead>
               <TableHead className="text-stegoshield-light/70">Source</TableHead>
               <TableHead className="text-stegoshield-light/70">Status</TableHead>
@@ -140,7 +138,6 @@ export default function BlockchainLogs({ className }: BlockchainLogsProps) {
               >
                 <TableCell className="font-mono text-xs text-stegoshield-light">{entry.fileHash}</TableCell>
                 <TableCell>{getResultBadge(entry.result)}</TableCell>
-                <TableCell>{getThreatLevelBadge(entry.threatLevel)}</TableCell>
                 <TableCell className="text-stegoshield-light">{entry.timestamp}</TableCell>
                 <TableCell>{getSourceBadge(entry.source)}</TableCell>
                 <TableCell>
@@ -161,7 +158,7 @@ export default function BlockchainLogs({ className }: BlockchainLogsProps) {
                     <Button 
                       size="sm"
                       variant="outline"
-                      className="text-sm border-stegoshield-light/20 text-stegoshield-light hover:bg-stegoshield-light/10"
+                      className="bg-stegoshield-accent text-stegoshield-dark hover:bg-stegoshield-accent/90 border-none"
                       onClick={() => window.open("https://etherscan.io", "_blank")}
                     >
                       <ExternalLink className="h-4 w-4 mr-2" />

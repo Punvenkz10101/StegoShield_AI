@@ -12,7 +12,6 @@ import ManualScan from "./pages/ManualScan";
 import GmailScan from "./pages/GmailScan";
 import WhatsappScan from "./pages/WhatsappScan";
 import BlockchainLogsPage from "./pages/BlockchainLogs";
-import Reports from "./pages/Reports";
 
 const queryClient = new QueryClient();
 
@@ -30,7 +29,6 @@ const App = () => (
           <Route path="/gmail-scan" element={<GmailScan />} />
           <Route path="/whatsapp-scan" element={<WhatsappScan />} />
           <Route path="/blockchain-logs" element={<BlockchainLogsPage />} />
-          <Route path="/reports" element={<Reports />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
