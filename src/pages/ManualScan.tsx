@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import Header from "@/components/layout/Header";
 import Sidebar from "@/components/layout/Sidebar";
@@ -58,9 +59,7 @@ export default function ManualScan() {
           <div className="max-w-7xl mx-auto">
             <h1 className="text-2xl font-bold text-stegoshield-light mb-6">Manual File Scanner</h1>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-[calc(100vh-12rem)]">
-              <FileUpload onFileSelect={handleFileSelect} />
-              
+            <div className="w-full h-[calc(100vh-12rem)]">
               {isScanning ? (
                 <div className="glass-card rounded-xl p-6 flex flex-col items-center justify-center">
                   <div className="w-16 h-16 border-4 border-stegoshield-accent/30 border-t-stegoshield-accent rounded-full animate-spin mb-4"></div>
@@ -69,8 +68,14 @@ export default function ManualScan() {
                     Our AI is analyzing the file for hidden malware and steganography
                   </p>
                 </div>
-              ) : scanResult && (
-                <ScanResult result={scanResult} />
+              ) : (
+                <div className="glass-card rounded-xl p-6">
+                  {!scanResult ? (
+                    <FileUpload onFileSelect={handleFileSelect} />
+                  ) : (
+                    <ScanResult result={scanResult} />
+                  )}
+                </div>
               )}
             </div>
           </div>

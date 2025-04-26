@@ -1,4 +1,3 @@
-
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -64,14 +63,13 @@ export default function FileUpload({ onFileSelect, className }: FileUploadProps)
     video: ["video/mp4", "video/webm", "video/ogg"]
   };
 
-  // Get a list of accepted file types for the input
   const getAcceptedFileTypes = () => {
     if (category === "all") return "";
     return fileTypes[category as keyof typeof fileTypes].join(",");
   };
 
   return (
-    <div className={cn("glass-card rounded-xl p-6", className)}>
+    <div className={cn("space-y-4", className)}>
       <div className="mb-4">
         <h2 className="text-lg font-semibold text-stegoshield-light mb-2">Upload File for Scanning</h2>
         <p className="text-sm text-stegoshield-light/70">
@@ -139,14 +137,14 @@ export default function FileUpload({ onFileSelect, className }: FileUploadProps)
             File Category
           </label>
           <Select value={category} onValueChange={setCategory}>
-            <SelectTrigger className="bg-stegoshield-light/5 border-stegoshield-light/10 text-stegoshield-light">
+            <SelectTrigger className="bg-stegoshield-dark/50 border-stegoshield-accent/20 text-stegoshield-light hover:border-stegoshield-accent/40">
               <SelectValue placeholder="Select Category" />
             </SelectTrigger>
-            <SelectContent className="bg-stegoshield-dark border-stegoshield-light/10">
-              <SelectItem value="image">Image</SelectItem>
-              <SelectItem value="audio">Audio</SelectItem>
-              <SelectItem value="video">Video</SelectItem>
-              <SelectItem value="all">All Types</SelectItem>
+            <SelectContent className="bg-stegoshield-dark border-stegoshield-accent/20">
+              <SelectItem value="image" className="text-stegoshield-light hover:bg-stegoshield-accent/20">Image</SelectItem>
+              <SelectItem value="audio" className="text-stegoshield-light hover:bg-stegoshield-accent/20">Audio</SelectItem>
+              <SelectItem value="video" className="text-stegoshield-light hover:bg-stegoshield-accent/20">Video</SelectItem>
+              <SelectItem value="all" className="text-stegoshield-light hover:bg-stegoshield-accent/20">All Types</SelectItem>
             </SelectContent>
           </Select>
         </div>

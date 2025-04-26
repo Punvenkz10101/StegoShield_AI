@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -8,8 +7,7 @@ import {
   Scan, 
   Mail, 
   MessageSquare, 
-  Database, 
-  Download, 
+  Database,
   Menu,
   LogOut
 } from "lucide-react";
@@ -56,7 +54,6 @@ export default function Sidebar() {
     { path: "/gmail-scan", icon: Mail, title: "Gmail Attachments" },
     { path: "/whatsapp-scan", icon: MessageSquare, title: "WhatsApp Media" },
     { path: "/blockchain-logs", icon: Database, title: "Blockchain Logs" },
-    { path: "/reports", icon: Download, title: "Download Reports" },
   ];
 
   return (

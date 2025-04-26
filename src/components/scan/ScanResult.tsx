@@ -1,9 +1,8 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
-import { Check, Download, AlertTriangle, AlertCircle, FileArchive } from "lucide-react";
+import { Check, AlertTriangle, AlertCircle, FileArchive } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/components/ui/use-toast";
 
@@ -22,7 +21,6 @@ interface ScanResultProps {
 
 export default function ScanResult({ result, className }: ScanResultProps) {
   const [isLogging, setIsLogging] = useState(false);
-  const [isDownloading, setIsDownloading] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
   const { toast } = useToast();
 
@@ -39,18 +37,6 @@ export default function ScanResult({ result, className }: ScanResultProps) {
         description: "Threat logged to blockchain successfully.",
       });
     }, 2000);
-  };
-
-  const handleDownloadReport = () => {
-    setIsDownloading(true);
-    // Simulate download
-    setTimeout(() => {
-      setIsDownloading(false);
-      toast({
-        title: "Report Downloaded",
-        description: `Scan report for ${result.filename} has been downloaded.`,
-      });
-    }, 1500);
   };
 
   const getStatusAlert = () => {
@@ -101,7 +87,7 @@ export default function ScanResult({ result, className }: ScanResultProps) {
   };
 
   return (
-    <div className={cn("glass-card rounded-xl p-6", className)}>
+    <div className={cn("space-y-6", className)}>
       <h2 className="text-lg font-semibold text-stegoshield-light mb-4">Scan Results</h2>
       
       <div className="space-y-6">
@@ -141,27 +127,15 @@ export default function ScanResult({ result, className }: ScanResultProps) {
           )}
         </div>
         
-        <div className="flex flex-col sm:flex-row gap-3 pt-4">
-          {(result.status === "malware" || result.status === "stego") && !isLogged && (
-            <Button 
-              onClick={handleLogToBlockchain}
-              disabled={isLogging}
-              className="bg-stegoshield-accent text-stegoshield-dark hover:bg-stegoshield-accent/90"
-            >
-              {isLogging ? "Logging..." : "Log to Blockchain"}
-            </Button>
-          )}
-          
+        {(result.status === "malware" || result.status === "stego") && !isLogged && (
           <Button 
-            variant="outline" 
-            onClick={handleDownloadReport}
-            disabled={isDownloading}
-            className="border-stegoshield-light/20 text-stegoshield-light hover:bg-stegoshield-light/10"
+            onClick={handleLogToBlockchain}
+            disabled={isLogging}
+            className="bg-stegoshield-accent text-stegoshield-dark hover:bg-stegoshield-accent/90"
           >
-            <FileArchive className="w-4 h-4 mr-2" />
-            {isDownloading ? "Preparing..." : "Download Scan Report"}
+            {isLogging ? "Logging..." : "Log to Blockchain"}
           </Button>
-        </div>
+        )}
       </div>
     </div>
   );
