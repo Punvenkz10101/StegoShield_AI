@@ -1,126 +1,122 @@
+<!-- README.md (HTML format for GitHub) -->
+
 <h1 align="center">🛡️ StegoShield: Watchdog AI</h1>
+<p align="center"><b>Securely scan, analyze, and track email & WhatsApp attachments with full transparency.</b></p>
+<br/>
 
-<p align="center">
-Securely scan, analyze, and track email & WhatsApp attachments with full transparency.
-</p>
+<h2>🚀 Key Features</h2>
+<ul>
+  <li>🔍 <b>Gmail Attachment Scanner:</b> OAuth2-based Gmail authentication to fetch and scan attachments.</li>
+  <li>💬 <b>WhatsApp Media Processor:</b> Scan and manage media shared over WhatsApp using <code>whatsapp-web.js</code>.</li>
+  <li>📊 <b>Interactive Dashboard:</b> Visualize scans, threats, and activities in real-time.</li>
+  <li>⛓️ <b>Blockchain Logging:</b> Immutable action logs for transparent auditing.</li>
+  <li>🎨 <b>Modern UI:</b> Built with React, TypeScript, Vite, Tailwind CSS, and shadcn-ui.</li>
+</ul>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/React-18-blue?logo=react&style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Express-4.x-black?logo=express&style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Node.js-20.x-green?logo=node.js&style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/whatsapp--web.js-Latest-brightgreen?style=for-the-badge"/>
-</p>
+<h2>🛠️ Tech Stack</h2>
+<table>
+  <tr>
+    <th>Frontend</th>
+    <th>Backend</th>
+    <th>Integrations</th>
+  </tr>
+  <tr>
+    <td>
+      React (Vite + TypeScript)<br/>
+      Tailwind CSS + shadcn/ui<br/>
+      Axios
+    </td>
+    <td>
+      Node.js + Express<br/>
+      whatsapp-web.js<br/>
+      OAuth2 (googleapis)
+    </td>
+    <td>
+      Google APIs (Gmail OAuth2)<br/>
+      WhatsApp Web API<br/>
+      Blockchain Logger (optional)
+    </td>
+  </tr>
+</table>
 
----
-
-## 🚀 Key Features
-
-- 🔍 **Gmail Attachment Scanner:** OAuth2-based Gmail authentication to fetch and scan attachments.
-- 💬 **WhatsApp Media Processor:** Scan and manage media shared over WhatsApp using `whatsapp-web.js`.
-- 📊 **Interactive Dashboard:** Visualize scans, threats, and activities in real-time.
-- ⛓️ **Blockchain Logging:** Immutable action logs for transparent auditing.
-- 🎨 **Modern UI:** Built with React, TypeScript, Vite, Tailwind CSS, and shadcn-ui.
-
----
-
-## 🛠️ Tech Stack
-
-| Frontend                          | Backend                                 | Integrations                       |
-|------------------------------------|-----------------------------------------|------------------------------------|
-| React (Vite + TypeScript)          | Node.js + Express                       | Google APIs (Gmail OAuth2)         |
-| Tailwind CSS + shadcn/ui           | whatsapp-web.js                         | WhatsApp Web API                   |
-| Axios                              | OAuth2 (googleapis)                     | Blockchain Logger (optional)       |
-
----
-
-## 📁 Project Structure
-
+<h2>📁 Project Structure</h2>
+<pre>
 StegoShield/
-├── src/ # Frontend (Vite + React + TS)
-├── server/ # Backend (Node.js + Express)
-│ ├── downloads/ # Temporary downloaded files
-│ └── app.js # Express app entrypoint
+├── src/         # Frontend (Vite + React + TS)
+├── server/      # Backend (Node.js + Express)
+│   ├── downloads/   # Temporary downloaded files
+│   └── index.js     # Express app entrypoint
+</pre>
 
-yaml
-Copy
-Edit
+<h2>⚡ Quick Start</h2>
+<ol>
+  <li><b>Clone the Repository</b>
+    <pre><code>git clone &lt;YOUR_GIT_URL&gt;
+cd StegoShield</code></pre>
+  </li>
+  <li><b>Install Dependencies</b>
+    <ul>
+      <li>Frontend
+        <pre><code>npm install</code></pre>
+      </li>
+      <li>Backend
+        <pre><code>cd server
+npm install</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li><b>Start Development Servers</b>
+    <ul>
+      <li>Frontend
+        <pre><code>npm run dev</code></pre>
+        Runs at: <a href="http://localhost:5173">http://localhost:5173</a>
+      </li>
+      <li>Backend
+        <pre><code>cd server
+npm run dev</code></pre>
+        Runs at: <a href="http://localhost:5000">http://localhost:5000</a>
+      </li>
+    </ul>
+  </li>
+</ol>
 
----
+<h2>🔗 API Endpoints</h2>
+<table>
+  <tr><th>Endpoint</th><th>Description</th></tr>
+  <tr><td><code>/auth/google</code></td><td>Start Google OAuth2 flow</td></tr>
+  <tr><td><code>/auth/google/callback</code></td><td>OAuth2 callback endpoint</td></tr>
+  <tr><td><code>/auth/status</code></td><td>Get authentication status</td></tr>
+  <tr><td><code>/api/fetch-emails</code></td><td>Fetch & download Gmail attachments</td></tr>
+  <tr><td><code>/api/files</code></td><td>List downloaded files</td></tr>
+  <tr><td><code>/downloads/:filename</code></td><td>Download specific file</td></tr>
+</table>
 
-## ⚡ Quick Start
+<p><b>⚠️ Note:</b> OAuth tokens are stored in-memory and cleared on server restart. Files are stored temporarily in <code>/server/downloads</code>.</p>
 
-### 1. Clone the Repository
-```bash
-git clone <YOUR_GIT_URL>
-cd StegoShield
-2. Install Dependencies
-Frontend
-bash
-Copy
-Edit
-npm install
-Backend
-bash
-Copy
-Edit
-cd server
-npm install
-3. Start Development Servers
-Frontend
-bash
-Copy
-Edit
-npm run dev
-Runs at: http://localhost:5173
+<h2>🔐 Security Best Practices</h2>
+<ul>
+  <li>Store OAuth client secrets securely (use <code>.env</code>).</li>
+  <li>Limit token scopes to minimize access.</li>
+  <li>Regularly clear temporary files.</li>
+  <li>Use secure HTTPS in production.</li>
+</ul>
 
-Backend
-bash
-Copy
-Edit
-cd server
-npm run dev
-Runs at: http://localhost:5000
+<h2>📊 Frontend Highlights</h2>
+<ul>
+  <li>✅ OAuth2 Authentication for Gmail.</li>
+  <li>🔍 File upload & malware scan.</li>
+  <li>📈 Interactive dashboard with scan results & trends.</li>
+  <li>⛓️ Blockchain logs for auditability.</li>
+</ul>
 
-🔗 API Endpoints
-Endpoint	Description
-/auth/google	Start Google OAuth2 flow
-/auth/google/callback	OAuth2 callback endpoint
-/auth/status	Get authentication status
-/api/fetch-emails	Fetch & download Gmail attachments
-/api/files	List downloaded files
-/downloads/:filename	Download specific file
+<h2>🤝 Contributions</h2>
+<p>We welcome contributions!</p>
+<ol>
+  <li>🍴 Fork the project.</li>
+  <li>🌱 Create a branch: <code>git checkout -b feature/feature-name</code></li>
+  <li>✨ Add your changes.</li>
+  <li>📦 Commit: <code>git commit -m 'feat: add feature'</code></li>
+  <li>🔄 Push and open a PR.</li>
+</ol>
 
-⚠️ Note: OAuth tokens are stored in-memory and cleared on server restart. Files are stored temporarily in /server/downloads.
-
-🔐 Security Best Practices
-Store OAuth client secrets securely (use .env).
-
-Limit token scopes to minimize access.
-
-Regularly clear temporary files.
-
-Use secure HTTPS in production.
-
-📊 Frontend Highlights
-✅ OAuth2 Authentication for Gmail.
-
-🔍 File upload & malware scan.
-
-📈 Interactive dashboard with scan results & trends.
-
-⛓️ Blockchain logs for auditability.
-
-🤝 Contributions
-We welcome contributions!
-
-🍴 Fork the project.
-
-🌱 Create a branch: git checkout -b feature/feature-name
-
-✨ Add your changes.
-
-📦 Commit: git commit -m 'feat: add feature'
-
-🔄 Push and open a PR.
-
-<p align="center"> Made with ❤️ for safer digital communications. </p> ```
+<p align="center">Made with ❤️ for safer digital communications.</p>
